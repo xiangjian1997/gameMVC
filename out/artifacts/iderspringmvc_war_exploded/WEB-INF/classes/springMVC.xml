@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+<!--    &lt;!&ndash;Spring3.1开始的注解HandlerMapping&ndash;&gt;&lt;!&ndash;寻找&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+<!--    &lt;!&ndash;3.1开始的注解HandlerAdapter&ndash;&gt;&lt;!&ndash;调用&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>&lt;!&ndash;适配器&ndash;&gt;-->
+    <!--mvc注解驱动 自动配置了支持注解的映射器和适配器-->
+    <mvc:annotation-driven/>
+    <!--静态资源使用默认的servlet来处理     html   js css  图片-->
+    <mvc:default-servlet-handler/>
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/"/>     <!--前缀-->
+        <property name="suffix" value=".jsp"/>          <!--后缀-->
+     </bean>
+    <!--控制器的自动扫描-->
+    <!--springMVC框架自动扫描该包及其子包下面的所有的类 看看哪个类是控制器 @Controller-->
+    <context:component-scan base-package="com.wanmait.ider.controller"/>
+    <context:component-scan base-package="com.wanmait.ider.webcontroller"/>
+</beans>
