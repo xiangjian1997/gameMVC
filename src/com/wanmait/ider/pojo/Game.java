@@ -4,7 +4,7 @@ package com.wanmait.ider.pojo;
 public class Game
 {
     private Integer id;             //游戏id
-    private String gamename;        //游戏名称
+    private String gameName;        //游戏名称
     private Boolean fire;           //是否热门
     private Integer sort;           //热门排序默认数100
     private String putaway;           //上架时间---
@@ -53,11 +53,11 @@ public class Game
     public void setEnable(Boolean enable) {
         this.enable = enable;
     }
-    public String getGamename() {
-        return gamename;
+    public String getGameName() {
+        return gameName;
     }
-    public void setGamename(String gamename) {
-        this.gamename = gamename;
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 
     public Boolean getFire() {

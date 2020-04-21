@@ -1,6 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="el" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
     <title>主页</title>
@@ -8,6 +8,7 @@
   <body>
   <div class="index-container">
       <!--头部导航-->
+
       <jsp:include page="head/index_web_head.jsp"></jsp:include>
       <!--轮播图-->
       <div class="home_page_content">
@@ -44,83 +45,37 @@
       <!--第一屏-->
       <!--排行榜-->
         <div class="section section8 bg-shadow3">
-            <div class="ranking-container">
-              <div class="part-title"><span>游戏评分榜</span><a href="/paihb.html" target="_blank">MORE+</a></div>
-              <div class="ranking-ul">
-                  <el:forEach items="${applicationScope.all.get(2)}" var="rank" varStatus="ranks">
-                      <div class="ranking-li <el:if test="${(ranks.index+1)==1}">active</el:if>">
-                          <div class="ranking-head">
-                              <div class="ranking-num"><el:out value="${ranks.index+1}"></el:out></div>
-                              <span>01.30</span>
-                              <a href="$${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" target="_blank" title="<el:out value="${rank.game.gamename}"></el:out>" class="game-name"><el:out value="${rank.game.gamename}"></el:out></a>
-                              <em class="level"></em>
-                              <div class="hot-num"><i></i><el:out value="${rank.game.grade}"></el:out></div>
-                          </div>
-                          <div class="ranking-con">
-                              <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" title="<el:out value="${rank.game.gamename}"></el:out>" target="_blank" action="123">
-                                  <img src="${pageContext.request.contextPath}/static/images/gamepic/<el:out value="${rank.gamePics.get(0).picName}"></el:out>" data-original="//imgs.ali213.net/oday/uploadfile/2018/11/05/2018110555436913.jpg" alt="<el:out value="${rank.game.gamename}"></el:out>">
-                              </a>
-                              <div class="ranking-r">
-                                  <p>类型：<el:out value="${rank.type.cname}"></el:out></p><p>发行：Blizzard</p><p>平台：PC</p>
-                              </div>
-                          </div>
-                      </div>
-                      </el:forEach>
-              </div>
-            </div>
-            <i class="col-line"></i>
-            <div class="ranking-container">
-                <div class="part-title"><span>游戏人气榜</span><a href="/paihb.html" target="_blank">MORE+</a></div>
-                <div class="ranking-ul">
-                    <el:forEach items="${applicationScope.all.get(3)}" var="rank" varStatus="ranks">
-                        <div class="ranking-li <el:if test="${(ranks.index+1)==1}">active</el:if>">
-                            <div class="ranking-head">
-                                <div class="ranking-num"><el:out value="${ranks.index+1}"></el:out></div>
-                                <span>01.30</span>
-                                <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" target="_blank" title="<el:out value="${rank.game.gamename}"></el:out>" class="game-name"><el:out value="${rank.game.gamename}"></el:out></a>
-                                <em class="level"></em>
-                                <div class="hot-num"><i></i><el:out value="${rank.game.downloadCount}"></el:out></div>
-                            </div>
-                            <div class="ranking-con">
-                                <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" title="<el:out value="${rank.game.gamename}"></el:out>" target="_blank">
-                                    <img src="${pageContext.request.contextPath}/images/gamepic/<el:out value="${rank.gamePics.get(0).picName}"></el:out>" data-original="//imgs.ali213.net/oday/uploadfile/2018/11/05/2018110555436913.jpg" alt="<el:out value="${rank.game.gamename}"></el:out>">
-                                </a>
-                                <div class="ranking-r">
-                                    <p>类型：<el:out value="${rank.type.cname}"></el:out></p><p>发行：Blizzard</p><p>平台：PC</p>
+            <c:forEach items="${applicationScope.rankings}" var="ranking" varStatus="ranknum">
+                <div class="ranking-container">
+                    <div class="part-title"><span>${ranking.name}</span><!--<a href="/paihb.html" target="_blank">MORE+</a>--></div>
+                    <div class="ranking-ul">
+                        <c:forEach items="${ranking.gameTypeList}" var="rank" varStatus="ranks">
+                            <div class="ranking-li <c:if test="${(ranks.index+1)==1}">active</c:if>">
+                                <div class="ranking-head">
+                                    <div class="ranking-num"><c:out value="${ranks.index+1}"></c:out></div>
+                                    <span>01.30</span>
+                                    <a href="$${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" target="_blank" title="<c:out value="${rank.game.gameName}"></c:out>" class="game-name"><c:out value="${rank.game.gameName}"></c:out></a>
+                                    <em class="level"></em>
+                                    <div class="hot-num"><i></i>
+                                        <c:if test="${ranknum.index==0}"><c:out value="${rank.game.grade}"></c:out></c:if>
+                                        <c:if test="${ranknum.index==1}"><c:out value="${rank.game.grade}"></c:out></c:if>
+                                        <c:if test="${ranknum.index==2}"><c:out value="${rank.game.downloadCount}"></c:out></c:if>
+                                    </div>
+                                </div>
+                                <div class="ranking-con">
+                                    <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" title="<c:out value="${rank.game.gameName}"></c:out>" target="_blank" action="123">
+                                        <img src="${pageContext.request.contextPath}/static/images/gamepic/<c:out value="${rank.gamePics.get(0).picName}"></c:out>" data-original="//imgs.ali213.net/oday/uploadfile/2018/11/05/2018110555436913.jpg" alt="<c:out value="${rank.game.gameName}"></c:out>">
+                                    </a>
+                                    <div class="ranking-r">
+                                        <p>类型：<c:out value="${rank.type.typeName}"></c:out></p><p>发行：Blizzard</p><p>平台：PC</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        </el:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
-
-
-            </div>
-            <i class="col-line"></i>
-            <div class="ranking-container">
-                <div class="part-title">
-                    <span>游戏下载榜</span><a href="/paihb.html" target="_blank">MORE+</a></div>
-                <div class="ranking-ul">
-                    <el:forEach items="${applicationScope.all.get(4)}" var="rank" varStatus="ranks">
-                        <div class="ranking-li <el:if test="${(ranks.index+1)==1}">active</el:if>">
-                            <div class="ranking-head">
-                                <div class="ranking-num"><el:out value="${ranks.index+1}"></el:out></div>
-                                <span>01.30</span>
-                                <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" target="_blank" title="<el:out value="${rank.game.gamename}"></el:out>" class="game-name"><el:out value="${rank.game.gamename}"></el:out></a>
-                                <em class="level"></em>
-                                <div class="hot-num"><i></i><el:out value="${rank.game.downloadCount}"></el:out></div>
-                            </div>
-                            <div class="ranking-con">
-                                <a href="${pageContext.request.contextPath}/web/game_details?id=${rank.game.id}" title="<el:out value="${rank.game.gamename}"></el:out>" target="_blank">
-                                    <img src="${pageContext.request.contextPath}/images/gamepic/<el:out value="${rank.gamePics.get(0).picName}"></el:out>" data-original="//imgs.ali213.net/oday/uploadfile/2018/11/05/2018110555436913.jpg" alt="<el:out value="${rank.game.gamename}"></el:out>">
-                                </a>
-                                <div class="ranking-r">
-                                    <p>类型：<el:out value="${rank.type.cname}"></el:out></p><p>发行：Blizzard</p><p>平台：PC</p>
-                                </div>
-                            </div>
-                        </div>
-                        </el:forEach>
-                </div>
-            </div>
+                <i class="col-line"></i>
+            </c:forEach>
             <%--                    <!--底部--><jsp:include page="/all/include/tail.jsp"></jsp:include>--%>
             <!--登录弹窗-->
             <jsp:include page="head/register.jsp"></jsp:include>

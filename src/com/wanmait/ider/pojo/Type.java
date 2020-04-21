@@ -3,15 +3,19 @@ package com.wanmait.ider.pojo;
 public class Type
 {
     private Integer id;         //id
-    private String cname;       //分类名
+    private String typeName;       //分类名
     private Boolean enable;     //是否删除
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setCname(String cname) {
-        this.cname = cname;
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
     public void setEnable(Boolean enable) {
@@ -20,10 +24,6 @@ public class Type
 
     public Integer getId() {
         return id;
-    }
-
-    public String getCname() {
-        return cname;
     }
 
     public Boolean getEnable() {

@@ -76,20 +76,20 @@
             <ul>
                 <li>
                     <p>热门游戏</p>
-                    <div>
-                        <c:forEach items="${applicationScope.all.get(0)}" var="rank" varStatus="ranks">
-                            <em><a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}"><span style="color: rgb(255, 73, 59);">${rank.game.gamename}</span></a></em>
-                        </c:forEach>
-                    </div>
+<%--                    <div>--%>
+<%--                        <c:forEach items="${applicationScope.all.get(0)}" var="rank" varStatus="ranks">--%>
+<%--                            <em><a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}"><span style="color: rgb(255, 73, 59);">${rank.game.gamename}</span></a></em>--%>
+<%--                        </c:forEach>--%>
+<%--                    </div>--%>
                 </li>
                 <li>
                     <p>近期新作</p>
                     <div>
-                        <c:forEach items="${applicationScope.all.get(1)}" var="rank">
-                            <em>
-                                <a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}">${rank.game.gamename}</a>
-                            </em>
-                        </c:forEach>
+<%--                        <c:forEach items="${applicationScope.all.get(1)}" var="rank">--%>
+<%--                            <em>--%>
+<%--                                <a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}">${rank.game.gamename}</a>--%>
+<%--                            </em>--%>
+<%--                        </c:forEach>--%>
                     </div>
                 </li>
             </ul>
@@ -111,9 +111,9 @@
                         <p>A</p>
 
                             <div>
-                                <c:forEach var="rank" items="${applicationScope.all.get(5)}">
-                                <em><a target="_blank" href="//www.ali213.net/zt/ateliera14/" title="${rank.game.gamename}">${rank.game.gamename}</a></em>
-                                </c:forEach>
+<%--                                <c:forEach var="rank" items="${applicationScope.all.get(5)}">--%>
+<%--                                <em><a target="_blank" href="//www.ali213.net/zt/ateliera14/" title="${rank.game.gamename}">${rank.game.gamename}</a></em>--%>
+<%--                                </c:forEach>--%>
                             </div>
 
                     </li>

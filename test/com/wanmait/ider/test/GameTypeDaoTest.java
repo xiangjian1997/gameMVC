@@ -11,7 +11,7 @@ public class GameTypeDaoTest
     @Test
     public void getData()
     {
-        List datas= GameTypeDao.getGameTypeDao().getData();
+        List datas= GameTypeDao.getGameTypeDao().getRankings();
         datas.forEach(data -> System.out.println(data));
     }
 }
