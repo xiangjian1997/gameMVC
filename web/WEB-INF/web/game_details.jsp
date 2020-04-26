@@ -3,7 +3,7 @@
 <html >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><c:out value="${gameT.game.gamename}"></c:out></title>
+    <title><c:out value="${gameT.game.gameName}"></c:out></title>
     <meta name="renderer" content="ie-comp">
     <link href="${pageContext.request.contextPath}/static/css/game_details.css" rel="stylesheet" type="text/css">
 <%--    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>--%>
@@ -18,17 +18,17 @@
         <div class="detail_game_l">
             <div class="detail_game_l_nav">
                 <a href="${pageContext.request.contextPath}/web/game_index">单机游戏</a> &gt;
-                <a href="${pageContext.request.contextPath}/web/game_index?id=${gameT.type.id}" target="_blank"><c:out value="${gameT.type.cname}"></c:out></a> &gt;
-                <span itemprop="name"><c:out value="${gameT.game.gamename}"></c:out></span>
+                <a href="${pageContext.request.contextPath}/web/game_index?id=${gameT.type.id}" target="_blank"><c:out value="${gameT.type.typeName}"></c:out></a> &gt;
+                <span itemprop="name"><c:out value="${gameT.game.gameName}"></c:out></span>
             </div>
             <div class="detail_game_l_l">
-                <img src="${pageContext.request.contextPath}/static/images/gamepic/<c:out value="${gameT.gamePics.get(0).picName}"></c:out>" alt="${gameT.game.gamename}">
+                <img src="${pageContext.request.contextPath}/static/images/game_picture/<c:out value="${gameT.gamePictures.get(0).pictureName}"></c:out>" alt="${gameT.game.gameName}">
                 <em class="zh"></em>
             </div>
             <div class="detail_game_l_r">
                 <div class="detail_game_l_r_tit">
                     <div class="detail_game_l_r_ctit">
-                        <h1><c:out value="${gameT.game.gamename}"></c:out></h1>
+                        <h1><c:out value="${gameT.game.gameName}"></c:out></h1>
                         <span style="display:none" itemprop="inLanguage">中文</span>
                         <span style="display:none" itemprop="license">绿色版</span>
                         <span style="display:none" itemprop="alias">Call of Duty: Modern Warfare</span>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="detail_game_l_r_info mt5">
                     <ul>
-                        <li>游戏类型：<a href="http://down.ali213.net/pcgame/FPS/0-0-0-0-new-pic-1.html" target="_blank"><c:out value="${gameT.type.cname}"></c:out></a></li>
+                        <li>游戏类型：<a href="http://down.ali213.net/pcgame/FPS/0-0-0-0-new-pic-1.html" target="_blank"><c:out value="${gameT.type.typeName}"></c:out></a></li>
                         <li>更新时间：<a href="/pcgame/all/0-0-2019-0-new-pic-1.html" target="_blank"><span itemprop="dateModified">2019-10-28</span></a></li>
                         <li>游戏发行：Activision</li>
                     </ul>
@@ -61,8 +61,6 @@
                     <li class="liang hover"><a class="yxgs"><em class="sbg"></em><span>游戏概述</span></a></li>
                     <li class="liang"><a class="pzyq"><em class="sbg"></em><span>配置要求</span></a></li>
                     <li class="liang"><a class="azsm"><em class="sbg"></em><span>安装说明</span></a></li>
-                    <li><a class="xgxz"><em class="sbg"></em><span>相关下载</span></a></li>
-                    <li class="liang"><a class="xwgl"><em class="sbg"></em><span>新闻攻略</span></a></li>
                     <li class="liang"><a class="xzdz"><em class="sbg"></em><span>下载地址</span></a></li>
                 </ul>
             </div>
@@ -76,33 +74,7 @@
                 </div>
                 </div>
             </div>
-            <div class="detail_body_left_info" id="yxjs">
-                <div class="detail_body_left_info_tit"><h2>游戏介绍</h2></div>
-                <div class="detail_body_left_info_con">
-                    <p>　　这部《现代战争》重启作中，玩家将扮演技能高超的一级特工，发起令人惊叹、险象环生的行动，影响全球均势。全新的《现代战争》拥有统一的故事体验，玩家将能够畅享刺激宏伟的单人剧情模式、精彩纷呈的多人游戏模式，以及全新的合作游戏模式。</p>
 
-                    <h3><strong>使命召唤16现代战争游戏简介</strong></h3>
-
-                    <p>　　《使命召唤16：现代战争》游戏使用了大幅改造过的游戏引擎，能够对子弹的穿透效果进行模拟，这也让玩家们可以射穿特定类别的墙壁和掩体。同时，为了塑造真实感，这一作不会有僵尸模式。</p>
-
-                    <h3><strong>使命召唤16现代战争多人枪战模式</strong></h3>
-
-                    <p>　　该模式是一个4人（2v2）战斗，玩家将在定制的地图中战斗。每一轮开始后双方有40秒的时间去发现和击败敌方队伍，最后活着的队伍会获得一分。如果在开始的40秒内没有人被击杀的话，地图中会出现一面旗帜，玩家需要跑到旗并且守住3秒钟来获得一分。若限定时间内仍无胜者则取团队总生命值高者为胜。每位玩家100生命值，团队初始总生命值200。</p>
-
-                    <p>　　该模式不用创建职业，每一轮都会在一定范围内重新随机分配双方的武器装备，玩家共有四件装备：主武器、副武器、战术手雷（如闪光弹）、致命装备（如破片手雷）。双方队伍的装备相同，非常考验对各个装备的熟悉程度以及两个人的技术与配合。</p>
-
-                    <p>　　该模式无法自动回血，在有特定激素针配件的情况下可以手动回血。视角顶部显示总生命值 。</p>
-
-                    <h3><strong>使命召唤相关游戏推荐</strong></h3>
-
-                    <p><span style="color:#FF0000;"><strong>　　《</strong></span><strong><a href="https://down.ali213.net/pcgame/codbo4.html" target="_blank"><span style="color:#FF0000;">使命召唤15：黑色行动4》</span></a></strong>：《黑色行动》重磅回归！这里有热血澎湃、脚踏实地、畅快淋漓的多人游戏和最充实的丧尸模式——3个完整丧尸历险会在发售日当天放出。还有最新模式“黑色冲突”，玩家们将化身黑色行动特战士兵在《使命召唤》史上最大的地图上进行勇者游戏。用来自整个《黑色行动》系列的标志性的战斗方式、人物、场景和武器，感受全面冲突。</p>
-
-                    <p>　　<strong><span style="color:#FF0000;">《</span><a href="https://down.ali213.net/pcgame/cod14ww2e.html" target="_blank"><span style="color:#FF0000;">使命召唤14：二战</span></a><span style="color:#FF0000;">》</span></strong>：本作的战役剧情将重新回到二战战场。从诺曼底登陆的D-Day开始，横跨欧洲各个标志性地点的经典战役。在游戏中玩家将会体验到使命召唤经典战斗，以及战友间的友情。</p>
-
-                    <p>　　<strong><a href="https://down.ali213.net/pcgame/moh2010cht.html" target="_blank"><span style="color:#FF0000;">《荣誉勋章201》</span></a></strong>：游戏背景设定在现代的战争。这也是《荣誉勋章》系列上市十年来头一次抛弃了二战题材，投入了现代战争的怀抱。这款定于2010年发布的全新《荣誉勋章》将为玩家展现一个叫做“第一梯队”的机构，直接隶属于国家指挥局。</p>
-
-                </div>
-            </div>
             <div class="detail_body_left_info" id="pzyq">
                 <div class="detail_body_left_info_tit"><h2>配置要求</h2></div>
                 <div class="detail_body_left_info_con">
@@ -136,21 +108,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="detail_body_left_info">
-                <div class="detail_body_left_info_tit"><h2 id="azsm">安装说明</h2></div>
-                <div class="detail_body_left_info_con"><p>1. 用WINRAR软件解压缩游戏到硬盘上<br>
-                    2. 暴雪战网中添加游戏<br>
-                    3. 开始游戏</p></div>
-            </div>
-            <div class="detail_body_left_info">
-                <div class="detail_body_left_info_tit"><h2 id="bbyxk">必备运行库</h2></div>
-                <div class="detail_body_left_info_con">
-                    <div class="yunxingku">
-                        <ul>
-                            <li>· <a href="http://patch.ali213.net/showpatch/10662.html" target="_blank">DirectX Redist 多国语言版9.29.1974</a>
-                            必装&nbsp;&nbsp;96MB</li>
-                            <li>·&nbsp;说明：必备运行库即是使命召唤16：现代战争游戏运行所必须要安装的程序，如果没有这些程序，游戏可能无法正常运行。<br>&nbsp;&nbsp;<a href="http://patch.ali213.net/showpatch/10675.html" target="_blank"><font color="#ff6600">点此下载常用运行库整合包</font></a>(551M)含常见错误解决方法。</li></ul></div></div></div>
             <div class="detail_body_left_info" id="down_load">
                 <div class="detail_body_left_info_tit"><h2>下载地址</h2><a href="//game.ali213.net/thread-3584469-1-1.html" target="_blank">版本说明</a><a href="//www.ali213.net/about/feedback.html" target="_blank">我要报错</a></div>
                 <div class="detail_body_left_info_con">

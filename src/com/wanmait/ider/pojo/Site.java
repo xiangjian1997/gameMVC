@@ -1,11 +1,17 @@
 package com.wanmait.ider.pojo;
 
-public class Site {
-    private Integer id;         //id
-    private String name;        //地点名称，国，省，市
-    private Integer farther;    //父级id
+import java.io.Serializable;
 
-    private Boolean enable;     //是否存在
+public class Site implements Serializable {
+    private Integer id;
+
+    private String name;
+
+    private String farther;
+
+    private Boolean enable;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -23,11 +29,11 @@ public class Site {
         this.name = name;
     }
 
-    public Integer getFarther() {
+    public String getFarther() {
         return farther;
     }
 
-    public void setFarther(Integer farther) {
+    public void setFarther(String farther) {
         this.farther = farther;
     }
 
@@ -37,5 +43,19 @@ public class Site {
 
     public void setEnable(Boolean enable) {
         this.enable = enable;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", farther=").append(farther);
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
     }
 }

@@ -16,10 +16,8 @@ function changebna() {
 //退出事件
 function Exit() {
     $.ajax({
-        url:"/ider/web/User",
-        data:"action=webExit",
+        url:"/iderspringmvc_war_exploded/web/user/userExit",
         type:"post",
-
     });
     location.reload();
 }

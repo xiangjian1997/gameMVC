@@ -1,10 +1,12 @@
 package com.wanmait.ider.webcontroller;
 
-import com.wanmait.ider.dao.UserDao;
+import com.wanmait.ider.dao.impl.UserDao;
 import com.wanmait.ider.pojo.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -33,7 +35,7 @@ public class UserController
             }
         }
         ModelAndView modelAndView=new ModelAndView();
-        modelAndView.setViewName("web/index");
+        modelAndView.setViewName("/web/index");
     }
 
     public void checkhave(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -50,37 +52,36 @@ public class UserController
             out.print("0");
         }
     }
-
-    protected void checkUserP(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @PostMapping("login")       //用户登录
+    @ResponseBody
+    public void checkUserP(User user, HttpServletRequest request, HttpServletResponse response) throws IOException {
         //登录判断用户名和密码
-        PrintWriter out=response.getWriter();
-        String username=request.getParameter("name");
-        String password=request.getParameter("password");
-        if(null!=username&&null!=password)
+        ModelAndView modelAndView=new ModelAndView();
+        if(null!=user/*username&&null!=password*/)
         {
-            User user=new User();
-            user.setName(username);
-            user.setPassword(password);
+            PrintWriter out=response.getWriter();
             User temp= UserDao.getUserDao().getUser(user);
-            System.out.println(temp);
             if(null!=temp)
             {
                 HttpSession session=request.getSession();
                 session.setAttribute("temp",temp);
-                out.print("1");
+                out.print('1');
             }
             else {
                 out.print("0");
             }
-
         }
     }
-    protected void webExit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//退出
+    //退出
+    @PostMapping("user/userExit")
+    public ModelAndView webExit(HttpServletRequest request){
+        ModelAndView modelAndView=new ModelAndView();
         HttpSession session=request.getSession();
         session.setAttribute("temp",null);
-//        this.redirect("/index.jsp",request,response);
+        modelAndView.setViewName("/web/index");
+        return modelAndView;
     }
-    protected void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException     //更新用户数据库数据
+    protected void updateUser(HttpServletRequest request)  //更新用户数据库数据
     {
         String nickname=request.getParameter("nickname");
         String gender=request.getParameter("gender");
@@ -93,4 +94,16 @@ public class UserController
         session.setAttribute("temp",temp);
 //        this.redirect("/needsigin/personal.jsp",request,response);
     }
+    //访问个人资料页开始
+    @RequestMapping("/user/{type}")
+    public String Comment(@PathVariable("type")String type)
+    {
+        return "/web/user/"+type;
+    }
+    @RequestMapping("user")
+    public String personal()
+    {
+        return "/web/user/personal";
+    }
+
 }

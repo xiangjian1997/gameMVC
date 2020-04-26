@@ -1,15 +1,37 @@
 package com.wanmait.ider.pojo;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
-//游戏和游戏分类关联表
-public class GameType
-{
-    private Integer id;         //id
-    private Game game;          //游戏id
-    private Type type;          //分类id
-    private ArrayList<GamePic>gamePics;  //游戏图片动态数组
-    private Boolean enable;     //是否删除
+public class GameType implements Serializable {
+    private Integer id;
+
+    /**
+	* 游戏id
+	*/
+    private Game game;
+
+    /**
+	* 分类id
+	*/
+    private Type type;
+
+    /**
+	* 是否删除，1是没删除
+	*/
+    private Boolean enable;
+    /*图片的动态数组*/
+    private List<GamePicture> gamePictures;
+
+    public List<GamePicture> getGamePictures() {
+        return gamePictures;
+    }
+
+    public void setGamePictures(List<GamePicture> gamePictures) {
+        this.gamePictures = gamePictures;
+    }
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -35,6 +57,10 @@ public class GameType
         this.type = type;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public Boolean getEnable() {
         return enable;
     }
@@ -43,11 +69,17 @@ public class GameType
         this.enable = enable;
     }
 
-    public ArrayList<GamePic> getGamePics() {
-        return gamePics;
-    }
-
-    public void setGamePics(ArrayList<GamePic> gamePics) {
-        this.gamePics = gamePics;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", gameId=").append(game.getId());
+        sb.append(", typeId=").append(type.getId());
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
     }
 }

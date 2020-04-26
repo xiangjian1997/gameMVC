@@ -1,15 +1,46 @@
 package com.wanmait.ider.pojo;
-//管理员
-public class Admin
-{
-    private Integer id;         //id
-    private String name;        //用户名
-    private String password;    //密码
-    private String phone;       //手机号
-    private String email;       //邮箱
-    private Integer rank;       //管理员等级
-    private String headpic;     //头像
-    private Boolean enable;     //
+
+import java.io.Serializable;
+
+public class Admin implements Serializable {
+    private Integer id;
+
+    /**
+	* 账号
+	*/
+    private String name;
+
+    /**
+	* 密码
+	*/
+    private String password;
+
+    /**
+	* 手机
+	*/
+    private String phone;
+
+    /**
+	* 邮箱
+	*/
+    private String email;
+
+    /**
+	* 管理员等级去掉
+	*/
+    private Boolean rank;
+
+    /**
+	* 头像
+	*/
+    private String headpic;
+
+    /**
+	* 1是存在
+	*/
+    private Boolean enable;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -51,11 +82,11 @@ public class Admin
         this.email = email;
     }
 
-    public Integer getRank() {
+    public Boolean getRank() {
         return rank;
     }
 
-    public void setRank(Integer rank) {
+    public void setRank(Boolean rank) {
         this.rank = rank;
     }
 
@@ -77,15 +108,19 @@ public class Admin
 
     @Override
     public String toString() {
-        return "Admin{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", rank=" + rank +
-                ", headpic='" + headpic + '\'' +
-                ", enable=" + enable +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", password=").append(password);
+        sb.append(", phone=").append(phone);
+        sb.append(", email=").append(email);
+        sb.append(", rank=").append(rank);
+        sb.append(", headpic=").append(headpic);
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
     }
 }

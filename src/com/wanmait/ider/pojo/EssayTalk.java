@@ -1,14 +1,39 @@
 package com.wanmait.ider.pojo;
-//文章评论
-public class EssayTalk
-{
-    private Integer id;                 //id
-    private EssayTalk essayTalk;        //攻略
-    private User user;                  //用户
-    private String comment;             //评论
-    private Integer commentPraise;      //赞的数量
-    private Integer commentTread;       //踩的数量
-    private Boolean enable;             //是否删除
+
+import java.io.Serializable;
+
+public class EssayTalk implements Serializable {
+    private Integer id;
+
+    /**
+	* 文章攻略的id
+	*/
+    private Integer essayId;
+
+    /**
+	* 用户的id
+	*/
+    private Integer userId;
+
+    /**
+	* 评论
+	*/
+    private String comment;
+
+    /**
+	* 赞的数量
+	*/
+    private Integer commentPraise;
+
+    /**
+	* 踩的数量
+	*/
+    private Integer commentTread;
+
+    private Boolean enable;
+
+    private static final long serialVersionUID = 1L;
+
     public Integer getId() {
         return id;
     }
@@ -17,20 +42,20 @@ public class EssayTalk
         this.id = id;
     }
 
-    public EssayTalk getEssayTalk() {
-        return essayTalk;
+    public Integer getEssayId() {
+        return essayId;
     }
 
-    public void setEssayTalk(EssayTalk essayTalk) {
-        this.essayTalk = essayTalk;
+    public void setEssayId(Integer essayId) {
+        this.essayId = essayId;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getComment() {
@@ -67,14 +92,18 @@ public class EssayTalk
 
     @Override
     public String toString() {
-        return "EssayTalk{" +
-                "id=" + id +
-                ", essayTalk=" + essayTalk +
-                ", user=" + user +
-                ", comment='" + comment + '\'' +
-                ", commentPraise=" + commentPraise +
-                ", commentTread=" + commentTread +
-                ", enable=" + enable +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", essayId=").append(essayId);
+        sb.append(", userId=").append(userId);
+        sb.append(", comment=").append(comment);
+        sb.append(", commentPraise=").append(commentPraise);
+        sb.append(", commentTread=").append(commentTread);
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
     }
 }

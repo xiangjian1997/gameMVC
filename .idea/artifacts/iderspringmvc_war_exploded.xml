@@ -51,6 +51,7 @@
           <element id="module-output" name="gamemvc" />
         </element>
       </element>
+      <element id="artifact" artifact-name="gamemvc:war" />
     </root>
   </artifact>
 </component>

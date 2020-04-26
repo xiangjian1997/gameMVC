@@ -3,7 +3,7 @@
 <html>
 <head>
 <%--&lt;%&ndash;  导入logo图标  &ndash;%&gt;--%>
-<%--    <link href="${pageContext.request.contextPath}/images/logohead.png" rel="SHORTCUT ICON">--%>
+
     <!--导入css样式-->
     <link href="${pageContext.request.contextPath}/static/css/index.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js"></script>
@@ -14,8 +14,8 @@
 <div class="header bg-shadow1 fn-clear">
     <div class="header-con">
         <div class="header-left">
-            <a class="left-icon1" href="${pageContext.request.contextPath}" target="_blank"><i class="icon"></i><span>Game首页</span></a>
-            <a class="left-icon2" href="${pageContext.request.contextPath}/web/game_index" target="_blank"><i class="icon"></i><span>Game</span></a>
+            <a class="left-icon1" href="${pageContext.request.contextPath}/index" target="_blank"><i class="icon"></i><span>Game首页</span></a>
+            <a class="left-icon2" href="${pageContext.request.contextPath}/web/game_type" target="_blank"><i class="icon"></i><span>Game</span></a>
         </div>
         <div class="header-right">
 
@@ -27,17 +27,17 @@
                 </c:if>
                 <c:if test="${sessionScope.temp!=null}">
                     <li id="ali213SSO">
-                    <a class="ali213SSO-online-avatar-username-link" href="${pageContext.request.contextPath}/needsigin/personal.jsp" target="_blank"><img class="ali213SSO-online-avatar" src="https://uc.ali213.net/data/avatar/022/88/42/57_avatar_middle.jpg"><span class="ali213SSO-username"><c:out value="${sessionScope.temp.nickname}"></c:out></span></a>
+                    <a class="ali213SSO-online-avatar-username-link" href="${pageContext.request.contextPath}/web/user/personal" target="_blank"><img class="ali213SSO-online-avatar" src="https://uc.ali213.net/data/avatar/022/88/42/57_avatar_middle.jpg"><span class="ali213SSO-username"><c:out value="${sessionScope.temp.nickname}"></c:out></span></a>
                     <div class="ali213SSO-info-holder" style="display: none;">
                         <div class="ali213SSO-info-block2">
-                            <a class="ali213SSO-info-block2-li1" href="${pageContext.request.contextPath}/needsigin/personal.jsp" target="_blank"><em></em>修改资料</a>
+                            <a class="ali213SSO-info-block2-li1" href="${pageContext.request.contextPath}/web/user/personal" target="_blank"><em></em>修改资料</a>
                         </div>
                         <div class="ali213SSO-info-block1">
-                            <a id="alisso-baidu-comment1" href="${pageContext.request.contextPath}/needsigin/comment.jsp" target="_blank"><em></em>评论</a>
+                            <a id="alisso-baidu-comment1" href="${pageContext.request.contextPath}/web/user/comment" target="_blank"><em></em>评论</a>
                         </div>
                         <div class="ali213SSO-info-block4">
-                            <a id="alisso-info4-myxs1" href="${pageContext.request.contextPath}/needsigin/essay.jsp" target="_blank"><em></em>文章</a>
-                            <a class="ali213SSO-info-block2-li3" href="${pageContext.request.contextPath}/game_index.jsp" target="_blank"><em></em>游戏中心</a>
+                            <a id="alisso-info4-myxs1" href="${pageContext.request.contextPath}/web/user/essay" target="_blank"><em></em>文章</a>
+                            <a class="ali213SSO-info-block2-li3" href="${pageContext.request.contextPath}/web/game_type" target="_blank"><em></em>游戏中心</a>
                         </div>
 
                         <div class="ali213SSO-info-block3">
@@ -51,13 +51,13 @@
 </div>
 <!--首页导航-->
 <div class="index-header fn-clear">
-    <a href="${pageContext.request.contextPath}/index.jsp" title="Game网" class="to-index icon" style="border:1px solid #0B0002"></a>
+    <a href="${pageContext.request.contextPath}/index" title="Game网" class="to-index icon" ></a>
 </div>
 <!--头部引导-->
 <div class="top-container">
     <div class="top-search-con bg-shadow2">
-        <form action="https://so.ali213.net/s/c?" method="get" target="_blank" id="cse-search-box">
-            <input type="text" name="keyword" id="soinput" class="soinput" autocomplete="off" value="<c:out value="${applicationScope.all.get(3).get(0).game.gamename}"></c:out>" onblur="if(this.value=='') this.value='<c:out value="${applicationScope.all.get(3).get(0).game.gamename}"></c:out>';" onfocus="if(this.value=='<c:out value="${applicationScope.all.get(3).get(0).game.gamename}"></c:out>') this.value='';">
+        <form action="${pageContext.request.contextPath}/web/game_type?" method="get" target="_blank" id="cse-search-box">
+            <input type="text" name="keyword" id="soinput" class="soinput" autocomplete="off" value="<c:out value="${applicationScope.rankings.get(1).gameTypes.get(0).game.gameName}"></c:out>" onblur="if(this.value=='') this.value='<c:out value="${applicationScope.rankings.get(1).gameTypes.get(0).game.gameName}"></c:out>';" onfocus="if(this.value=='<c:out value="${applicationScope.rankings.get(1).gameTypes.get(0).game.gameName}"></c:out>') this.value='';">
             <input type="hidden" name="group" value="0">
             <input type="submit" value="搜索" class="msobutton" id="msobutton">
             <label for="sobutton" class="sobutton-label">
@@ -76,20 +76,20 @@
             <ul>
                 <li>
                     <p>热门游戏</p>
-<%--                    <div>--%>
-<%--                        <c:forEach items="${applicationScope.all.get(0)}" var="rank" varStatus="ranks">--%>
-<%--                            <em><a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}"><span style="color: rgb(255, 73, 59);">${rank.game.gamename}</span></a></em>--%>
-<%--                        </c:forEach>--%>
-<%--                    </div>--%>
+                    <div>
+                        <c:forEach items="${applicationScope.indexHotGames}" var="game" varStatus="ranks">
+<%--                            <em><a href="${pageContext.request.contextPath}/web/game_details?id=${game.id}" style="line-height: 20px;" target="_blank" title="${game.gameName}"><span style="color: rgb(255, 73, 59);">${game.gameName}</span></a></em>--%>
+                        </c:forEach>
+                    </div>
                 </li>
                 <li>
                     <p>近期新作</p>
                     <div>
-<%--                        <c:forEach items="${applicationScope.all.get(1)}" var="rank">--%>
-<%--                            <em>--%>
-<%--                                <a href="${pageContext.request.contextPath}/game_details.jsp?id=${rank.game.id}" style="line-height: 20px;" target="_blank" title="${rank.game.gamename}">${rank.game.gamename}</a>--%>
-<%--                            </em>--%>
-<%--                        </c:forEach>--%>
+                        <c:forEach items="${applicationScope.indexNexGames}" var="game">
+                            <em>
+                                <a href="${pageContext.request.contextPath}/web/game_details?id=${game.id}" style="line-height: 20px;" target="_blank" title="${game.gameName}">${game.gameName}</a>
+                            </em>
+                        </c:forEach>
                     </div>
                 </li>
             </ul>

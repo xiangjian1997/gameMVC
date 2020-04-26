@@ -3,21 +3,23 @@
   <component name="MyBatisCodeHelperDatasource">
     <option name="projectProfile">
       <ProjectProfile>
-        <option name="javaMapperPackage" value="com.wanmait.ider.pojo" />
+        <option name="addSerializeUid" value="true" />
+        <option name="javaMapperPackage" value="com.wanmait.ider.dao" />
         <option name="javaMapperPath" value="$PROJECT_DIR$/src" />
         <option name="javaModelPackage" value="com.wanmait.ider.pojo" />
         <option name="javaModelPath" value="$PROJECT_DIR$/src" />
         <option name="lastDatabaseCrudChooseModuleName" value="gamemvc" />
+        <option name="modelAddToString" value="true" />
         <option name="moduleNameToPackageAndPathMap">
           <map>
             <entry key="gamemvc">
               <value>
                 <UserPackageAndPathInfoByModule>
-                  <option name="javaMapperPackage" value="com.wanmait.ider.pojo" />
+                  <option name="javaMapperPackage" value="com.wanmait.ider.dao" />
                   <option name="javaMapperPath" value="$PROJECT_DIR$/src" />
                   <option name="javaModelPacakge" value="com.wanmait.ider.pojo" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/src" />
-                  <option name="xmlPackage" value="mapperxml" />
+                  <option name="xmlPackage" value="mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/resoures" />
                 </UserPackageAndPathInfoByModule>
               </value>
@@ -26,6 +28,86 @@
         </option>
         <option name="tableGenerateConfigs">
           <map>
+            <entry key="gamemvc:admin">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Admin" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:essay_talk">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="EssayTalk" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:game">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Game" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:game_essay">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="GameEssay" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:game_picture">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="GamePicture" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:game_type">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="GameType" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:handle">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Handle" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:manage">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Manage" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="gamemvc:ranking">
               <value>
                 <TableGenerateConfig>
@@ -36,9 +118,69 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="gamemvc:site">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Site" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:tb_city">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="cityid" />
+                  <option name="javaModelName" value="TbCity" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:tb_country">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="countryid" />
+                  <option name="javaModelName" value="TbCountry" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:tb_quxian">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="quxianid" />
+                  <option name="javaModelName" value="TbQuxian" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:type">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Type" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="gamemvc:user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="User" />
+                  <option name="moduleName" value="gamemvc" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
           </map>
         </option>
-        <option name="xmlMapperPackage" value="mapperxml" />
+        <option name="xmlMapperPackage" value="mapper" />
         <option name="xmlMapperPath" value="$PROJECT_DIR$/resoures" />
       </ProjectProfile>
     </option>

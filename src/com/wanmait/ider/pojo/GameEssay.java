@@ -1,11 +1,29 @@
 package com.wanmait.ider.pojo;
-//游戏文章、攻略、评测等
-public class GameEssay
-{
-    private Integer id;             //id
-    private String essay;           //评论
-    private Integer essayType;      //判断是游戏文章，攻略，还是评测
-    private Boolean enable;         //是否删除
+
+import java.io.Serializable;
+
+public class GameEssay implements Serializable {
+    /**
+	* id
+	*/
+    private Integer id;
+
+    /**
+	* 文章内容
+	*/
+    private String essay;
+
+    /**
+	* 判断是游戏文章，攻略，还是评测
+	*/
+    private Integer essayType;
+
+    /**
+	* 假删除
+	*/
+    private Boolean enable;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -39,5 +57,17 @@ public class GameEssay
         this.enable = enable;
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", essay=").append(essay);
+        sb.append(", essayType=").append(essayType);
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
+    }
 }

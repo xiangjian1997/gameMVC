@@ -50,18 +50,21 @@ function checkUserPassword() {//检查用户名
 /*登录表单提交检查*/
 function Sigin(UNname,UPass) {
     $.ajax({
-        url:"/ider/web/User",
-        data:"action=checkUserP&name="+UNname+"&password="+UPass,
+        url:"/iderspringmvc_war_exploded/web/login",
+        data:{
+          "name":UNname,"password":UPass
+        },/*"action=checkUserP&name="+UNname+"&password="+UPass,*/
         type:"post",
+        dataType:"json",
         async:false,
-        success:function (a) {
-            switch (a) {
-
+        success:function (data) {
+            switch (data) {
                 case "0":
                     alert("用户名、邮箱、手机号或密码错误");
                     return false;
                 case "1":
-                    location.reload();
+                    window.location.reload();
+                    alert("进入")
                     return true;
                 default :
                     return false;

@@ -7,7 +7,7 @@ public class DBHelper
 {
     private static String url,user, password;
     private DBHelper(){}
-    private static ResourceBundle resourceBundle=ResourceBundle.getBundle("dbconfig");      //读取dbconfig配置文件
+    private static ResourceBundle resourceBundle=ResourceBundle.getBundle("dbConfig");      //读取dbConfig配置文件
     public static DBHelper getDBHelper() {
         DBHelper dbHelper=new DBHelper();
         return dbHelper;
@@ -15,7 +15,9 @@ public class DBHelper
     //优化
     static{
         try {
+
             url=resourceBundle.getString("url");
+            System.out.println(url);
             user=resourceBundle.getString("user");
             password=resourceBundle.getString("password");
             //加载驱动
@@ -24,7 +26,6 @@ public class DBHelper
             e.printStackTrace();
         }
     }
-
     //加载驱动
     public static Connection getConnection()
     {
@@ -32,7 +33,6 @@ public class DBHelper
         try {
             conn = DriverManager.getConnection(url, user, password);
         }catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return conn;

@@ -1,8 +1,9 @@
 package com.wanmait.ider.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Ranking {
+public class Ranking implements Serializable {
     private Integer id;
 
     /**
@@ -17,21 +18,13 @@ public class Ranking {
 
     private Boolean enable;
 
-    private List<GameType> gameTypeList;
+    private List<GameType> gameTypes;
 
-    public List<GameType> getGameTypeList() {
-        return gameTypeList;
-    }
-
-    public void setGameTypeList(List<GameType> gameTypeList) {
-        this.gameTypeList = gameTypeList;
-    }
+    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
     }
-
-
 
     public void setId(Integer id) {
         this.id = id;
@@ -59,5 +52,31 @@ public class Ranking {
 
     public void setEnable(Boolean enable) {
         this.enable = enable;
+    }
+
+    public List<GameType> getGameTypes() {
+        return gameTypes;
+    }
+
+    public void setGameTypes(List<GameType> gameTypes) {
+        this.gameTypes = gameTypes;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", value=").append(value);
+        sb.append(", enable=").append(enable);
+        sb.append("]");
+        return sb.toString();
     }
 }

@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="n1_content">
-        <p class="gamePic">
+        <p class="gamePicture">
             <img src="http://img.soft5566.com/pic/y/2016030920338686.jpg" onerror="nofind()" style="width:132px;float:left;">
         </p>
         <ul>

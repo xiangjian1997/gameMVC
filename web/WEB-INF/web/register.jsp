@@ -16,9 +16,9 @@
 <div class="register_body">
     <c:if test="${sessionScope.temp!=null}">
         <div class="msg-before-transfer-holder">
-            <div>您已登录<a href="${pageContext.request.contextPath}/index.jsp" style="color: red;">如果没有跳转请点此链接</a></div>
+            <div>您已登录<a href="${pageContext.request.contextPath}/index" style="color: red;">如果没有跳转请点此链接</a></div>
         </div>
-        <meta http-equiv="refresh" content="3;url=${pageContext.request.contextPath}/index.jsp">
+        <meta http-equiv="refresh" content="3;url=${pageContext.request.contextPath}/index"><%--延时跳转--%>
     </c:if>
     <c:if test="${sessionScope.temp==null}">
         <div class="register_body_left">
