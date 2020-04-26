@@ -38,6 +38,7 @@ public class GameController
         public ModelAndView gameIndex(@PathVariable("typeId")String typeId)
         {
             ModelAndView modelAndView=new ModelAndView();
+            System.out.println(typeId);
             modelAndView.setViewName("/web/game_type");
             return modelAndView;
         }
