@@ -17,6 +17,7 @@ public class AdminDao {
     private DBHelper dbhelper = DBHelper.getDBHelper();
 
     private AdminDao() {
+
     }
 
     public static AdminDao getAdminDao() {
