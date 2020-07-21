@@ -3,7 +3,10 @@
 <html>
 <head>
 <%--&lt;%&ndash;  导入logo图标  &ndash;%&gt;--%>
-
+    <script type="text/javascript">
+        var url="${pageContext.request.contextPath}";
+        console.log(url);
+    </script>
     <!--导入css样式-->
     <link href="${pageContext.request.contextPath}/static/css/index.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js"></script>

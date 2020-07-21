@@ -6,7 +6,7 @@
     <title>注册登录页</title>
     <!--导入js文件-->
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/register.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/register.js" charset="UTF-8"></script>
 </head>
 <body>
 <!--头部-start-->

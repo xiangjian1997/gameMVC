@@ -82,7 +82,7 @@ public class GameDao
     {
         String sql="select * from type,game_type,game_picture,game where type.id=game_type.type_id " +
                 "  and game_picture.game_id=game.id and game.id=game_type.game_id " +
-                " and type.enable=1 and game_type.enable=1 and game.enable=1 and game_picture.enable=1 ";
+                " and type.enable=1 and game_type.enable=1 and game.enable=1 and game_picture.enable=1 group by game.id";
         Connection connection=dbhelper.getConnection();
         ArrayList<GameType> gameTypes=new ArrayList<>();
         try {

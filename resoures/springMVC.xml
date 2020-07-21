@@ -3,35 +3,37 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-<!--    &lt;!&ndash;Spring3.1开始的注解HandlerMapping&ndash;&gt;&lt;!&ndash;寻找&ndash;&gt;-->
+<!--    Spring3.1开始的注解HandlerMapping  支持注解的映射器      （1）Handler是Controller中的方法 根据RequestMapping寻找到相应的方法-->
 <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
-<!--    &lt;!&ndash;3.1开始的注解HandlerAdapter&ndash;&gt;&lt;!&ndash;调用&ndash;&gt;-->
+<!--    3.1开始的注解HandlerAdapter&ndash   支持注解的适配器     （2）通过适配器调用方法-->
 <!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>&lt;!&ndash;适配器&ndash;&gt;-->
+
     <!--mvc注解驱动 自动配置了支持注解的映射器和适配器-->
-    <mvc:annotation-driven>
-        <mvc:message-converters><!--消息转换器-->
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>text/plain;charset=UTF-8</value>
-                        <value>text/html;charset=UTF-8</value>
-                        <value>application/json;charset=UTF-8</value>
-                        <value>application/x-www-form-urlencoded;charset=UTF-8</value>
-                    </list>
-                </property>
-            </bean>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>application/json;charset=UTF-8</value>
-                        <value>text/html;charset=UTF-8</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+    <mvc:annotation-driven/>
+<!--        <mvc:message-converters>&lt;!&ndash;消息转换器&ndash;&gt;-->
+<!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+<!--                <property name="supportedMediaTypes">-->
+<!--                    <list>-->
+<!--                        <value>text/plain;charset=UTF-8</value>-->
+<!--                        <value>text/html;charset=UTF-8</value>-->
+<!--                        <value>application/json;charset=UTF-8</value>-->
+<!--                        <value>application/x-www-form-urlencoded;charset=UTF-8</value>-->
+<!--                    </list>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+<!--                <property name="supportedMediaTypes">-->
+<!--                    <list>-->
+<!--                        <value>application/json;charset=UTF-8</value>-->
+<!--                        <value>text/html;charset=UTF-8</value>-->
+<!--                    </list>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </mvc:message-converters>-->
+<!--    </mvc:annotation-driven>-->
     <!--静态资源使用默认的servlet来处理     html   js css  图片-->
     <mvc:default-servlet-handler/>
+
 <!--    springMVC3.0.4版本之后可以使用下面方式 mapping指定为请求路径 location实际存放位置-->
 <!--    <mvc:resources mapping="/js/**" location="/WEB-IF/static/js"/>-->
 <!--    -->
@@ -42,6 +44,7 @@
         <property name="prefix" value="/WEB-INF/"/>     <!--前缀-->
         <property name="suffix" value=".jsp"/>          <!--后缀-->
      </bean>
+
 <!--    文件上传解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"></property>
@@ -52,4 +55,6 @@
     <!--springMVC框架自动扫描该包及其子包下面的所有的类 看看哪个类是控制器 @Controller-->
     <context:component-scan base-package="com.wanmait.ider.controller"/>
     <context:component-scan base-package="com.wanmait.ider.webcontroller"/>
+
+
 </beans>

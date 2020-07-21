@@ -2,9 +2,11 @@ package com.wanmait.ider.listener;
 
 import com.wanmait.ider.dao.impl.GameDao;
 import com.wanmait.ider.dao.impl.GameTypeDao;
+import com.wanmait.ider.dao.impl.TypeDao;
 import com.wanmait.ider.pojo.Game;
 import com.wanmait.ider.pojo.GameType;
 import com.wanmait.ider.pojo.Ranking;
+import com.wanmait.ider.pojo.Type;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,7 +22,6 @@ public class ContextListener implements ServletContextListener{
         //数据缓存用
         //主页游戏推荐--》热门
         List<GameType> gameTypes= GameTypeDao.getGameTypeDao().getHotGame();
-        System.out.println(gameTypes.size());
         sce.getServletContext().setAttribute("indexHotGames",gameTypes);
         // 近期新作
         List<Game> newGames=GameDao.getGameDao().getNewGame();
@@ -33,6 +34,9 @@ public class ContextListener implements ServletContextListener{
         //游戏分类界面数据
         List gameType=GameTypeDao.getGameTypeDao().getGameType();
         sce.getServletContext().setAttribute("gameType",gameType);
+        //游戏的分类取出
+        List<Type> types = TypeDao.getTypeDao().getAllType();
+        sce.getServletContext().setAttribute("types", types);
     }
     //项目停止时执行
     @Override

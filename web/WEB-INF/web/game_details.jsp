@@ -17,8 +17,8 @@
     <div class="detail_game" id="top" itemscope="" itemtype="http://schema.org/SoftwareApplication">
         <div class="detail_game_l">
             <div class="detail_game_l_nav">
-                <a href="${pageContext.request.contextPath}/web/game_index">单机游戏</a> &gt;
-                <a href="${pageContext.request.contextPath}/web/game_index?id=${gameT.type.id}" target="_blank"><c:out value="${gameT.type.typeName}"></c:out></a> &gt;
+                <a href="${pageContext.request.contextPath}/web/game_type">单机游戏</a> &gt;
+                <a href="${pageContext.request.contextPath}/web/game_type?id=${gameT.type.id}" target="_blank"><c:out value="${gameT.type.typeName}"></c:out></a> &gt;
                 <span itemprop="name"><c:out value="${gameT.game.gameName}"></c:out></span>
             </div>
             <div class="detail_game_l_l">

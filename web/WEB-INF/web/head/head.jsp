@@ -1,5 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <!--导入css样式-->
+<script type="text/javascript">
+    var url="${pageContext.request.contextPath}";
+    console.log(url);
+</script>
     <link href="${pageContext.request.contextPath}/static/css/head.css" rel="stylesheet" type="text/css">
 <div class="ucenter_top">
     <div class="ucenter_nav">

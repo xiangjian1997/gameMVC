@@ -56,7 +56,7 @@ function checkemail() /*邮箱验证格式正则表达式*/
         {
             $("#emailem").html("");
             $.ajax({
-                url:"/iderspringmvc_war_exploded/web/User",
+                url:url+"/web/User",
                 data:"action=checkhave&email="+email,
                 type:"post",
                 async:false,
@@ -114,6 +114,7 @@ function sendCode() /*发送验证码or发送注册链接*/
 function checkall() {
     var checka=$(this).prop("name");
     var f=true;
+    alert("你好");
     switch (checka) {
         case 'email':
             f=checkEmail.test($(this).val());

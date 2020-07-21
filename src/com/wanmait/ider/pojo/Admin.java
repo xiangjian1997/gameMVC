@@ -33,7 +33,7 @@ public class Admin implements Serializable {
     /**
 	* 头像
 	*/
-    private String headpic;
+    private String headPic;
 
     /**
 	* 1是存在
@@ -90,12 +90,12 @@ public class Admin implements Serializable {
         this.rank = rank;
     }
 
-    public String getHeadpic() {
-        return headpic;
+    public String getHeadPic() {
+        return headPic;
     }
 
-    public void setHeadpic(String headpic) {
-        this.headpic = headpic;
+    public void setHeadpic(String headPic) {
+        this.headPic = headPic;
     }
 
     public Boolean getEnable() {
@@ -118,7 +118,7 @@ public class Admin implements Serializable {
         sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", rank=").append(rank);
-        sb.append(", headpic=").append(headpic);
+        sb.append(", headpic=").append(headPic);
         sb.append(", enable=").append(enable);
         sb.append("]");
         return sb.toString();

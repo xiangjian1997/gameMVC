@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script type="text/javascript">
+    var url="${pageContext.request.contextPath}";
+    console.log(url);
+</script>
 <div class="ucenter_index">
     <div class="ucenter_index_left">
         <div class="ucenter_index_left_top">

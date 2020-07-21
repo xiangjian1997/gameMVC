@@ -9,13 +9,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <!--导入css样式-->
-    <link href="${pageContext.request.contextPath}/static/css/head/register.css">
-    <link href="${pageContext.request.contextPath}/static/css/index.css" rel="stylesheet" type="text/css">
-    <script src="${pageContext.request.contextPath}/static/js/head/register.js"></script>
+
 </head>
 <body>
-
+<script type="text/javascript">
+    var url="${pageContext.request.contextPath}";
+    console.log(url);
+</script>
+<!--导入css样式-->
+<link href="${pageContext.request.contextPath}/static/css/head/register.css">
+<link href="${pageContext.request.contextPath}/static/css/index.css" rel="stylesheet" type="text/css">
+<script src="${pageContext.request.contextPath}/static/js/head/register.js"></script>
     <div class="ali213SSOPopSheild" style="display: none;">
     <div class="ali213SSOCloseBtn"></div>
     <div class="ali213SSOPopHolderNormal">

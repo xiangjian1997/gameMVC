@@ -11,7 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@ControllerAdvice
+@ControllerAdvice       //此注解
 public class AdviceController
 {
     @InitBinder//时间的处理
@@ -20,11 +20,26 @@ public class AdviceController
         DateFormat dateFormat=new SimpleDateFormat("yyyy-mm-dd");//格式
         binder.registerCustomEditor(Date.class,new CustomDateEditor(dateFormat,true));
     }
+
     @ExceptionHandler(Exception.class)
-    public ModelAndView CommentException()
+    public ModelAndView CommentException(Exception e)
     {
         ModelAndView modelAndView=new ModelAndView();
-        modelAndView.setViewName("");
+        modelAndView.addObject("msg","错误"+e.getMessage());
+        modelAndView.setViewName("web/404");
         return modelAndView;
     }
+
+
+//    /**
+//     *处理异常
+//     **/
+//    @ExceptionHandler(Exception.class)
+//    public ModelAndView processException(Exception e)
+//    {
+//        System.out.println();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("msg","错误"+e.getMessage());
+//        return modelAndView;
+//    }
 }
