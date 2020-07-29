@@ -57,7 +57,7 @@ public class GameController {
     /*分类等*/
     @RequestMapping("game_type/{typeId}")
     public ModelAndView gameIndex(@PathVariable("typeId") String typeId) {
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();  
         System.out.println(typeId);
         modelAndView.setViewName("/web/game_type");
         return modelAndView;

@@ -11,7 +11,7 @@
     <script src="${pageContext.request.contextPath}/static/js/game_index.js" type="text/javascript"></script>
 </head>
 <body>
-<jsp:include page="head/head.jsp"></jsp:include>
+<jsp:include page="head/head.jsp"/>
 <div id="EyeableArea">
         <div id="down-container">
             <!--搜索部分-->
