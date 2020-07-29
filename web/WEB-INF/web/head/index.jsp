@@ -11,6 +11,7 @@
   <script type="text/javascript">
       var url="${pageContext.request.contextPath}";
       console.log(url);
+
   </script>
   <div class="index-container">
       <!--头部导航-->
